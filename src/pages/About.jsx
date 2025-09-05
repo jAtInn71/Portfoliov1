@@ -147,9 +147,7 @@ const About = () => {
           ref={el => textRefs.current[0] = el}
           className="text-center mb-8 sm:mb-10 md:mb-14 lg:mb-16 relative z-10"
         >
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-3 sm:mb-4 drop-shadow-lg" style={{fontFamily:'Fira Mono, JetBrains Mono, Source Code Pro, monospace'}}>
-            <span className="inline-block hover:scale-105 transition-transform duration-300 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">About</span> <span className="inline-block hover:scale-105 transition-transform duration-300">Me</span>
-          </h1>
+         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-6 sm:mb-8 drop-shadow-xl" style={{fontFamily:'Fira Mono, JetBrains Mono, Source Code Pro, monospace'}}> <span className="inline-block hover:scale-105 transition-transform duration-300 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">About</span>{" "} <span className="inline-block hover:scale-105 transition-transform duration-300">Me</span> </h1>
           <div className="w-12 sm:w-16 md:w-20 lg:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-3 sm:mb-6"></div>
           <div className="text-blue-300 text-xs sm:text-sm md:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed px-2">
             <span className="font-mono text-blue-400">&lt;</span>Code<span className="font-mono text-blue-400">/&gt;</span> • <span className="font-mono text-green-400">&lt;</span>Learn<span className="font-mono text-green-400">/&gt;</span> • <span className="font-mono text-purple-400">&lt;</span>Create<span className="font-mono text-purple-400">/&gt;</span>
@@ -212,6 +210,16 @@ const About = () => {
                 <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 opacity-30 blur-sm sm:blur-md md:blur-lg -z-10"></div>
               </div>
             </div>
+            {/* Minimal animated background circles */}
+<div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" ref={backgroundRef}>
+  <div className="absolute top-10 left-8 w-6 h-6 bg-blue-400 rounded-full opacity-100 animate-float"></div>
+  <div className="absolute top-1/3 right-10 w-5 h-5 bg-purple-400 rounded-full opacity-70 animate-float" style={{animationDelay:'1s'}}></div>
+  <div className="absolute bottom-1/4 left-1/4 w-7 h-7 bg-cyan-400 rounded-full opacity-70 animate-float" style={{animationDelay:'2s'}}></div>
+  <div className="absolute bottom-20 right-16 w-6 h-6 bg-pink-400 rounded-full opacity-70 animate-float" style={{animationDelay:'0.5s'}}></div>
+  <div className="absolute top-1/2 left-1/2 w-8 h-8 bg-blue-700 rounded-full opacity-70 blur-md animate-float" style={{animationDelay:'1.5s'}}></div>
+  <div className="absolute top-1/4 left-1/2 w-4 h-4 bg-yellow-400 rounded-full opacity-50 animate-float" style={{animationDelay:'2.5s'}}></div>
+  <div className="absolute bottom-1/3 right-1/3 w-5 h-5 bg-green-400 rounded-full opacity-50 animate-float" style={{animationDelay:'3s'}}></div>
+</div>
           </div>
 
         </div>
@@ -245,6 +253,16 @@ const About = () => {
         .animate-pulse-glow {
           animation: pulse-glow 2s infinite;
         }
+
+        @keyframes float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  33% { transform: translateY(-18px) scale(1.08); }
+  66% { transform: translateY(-8px) scale(0.96); }
+}
+
+.animate-float {
+  animation: float 7s ease-in-out infinite;
+}
       `}</style>
     </div>
   );
