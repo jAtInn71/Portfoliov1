@@ -31,11 +31,7 @@ const Contact = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold mb-6 inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-purple-600">
-            <span className="text-blue-400">&lt;</span>
-            Contact Me
-            <span className="text-purple-500">/&gt;</span>
-          </h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-6 sm:mb-8 drop-shadow-xl" style={{fontFamily:'Fira Mono, JetBrains Mono, Source Code Pro, monospace'}}> <span className="text-blue-400"></span> <span className="inline-block hover:scale-105 transition-transform duration-300 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 mx-1">Contact Me</span> <span className="text-purple-500"></span> </h1>
           <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Feel free to reach out for collaborations, opportunities, or just to say hello!
