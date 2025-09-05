@@ -118,9 +118,6 @@ const Home = () => {
                 <p className="text-sm sm:text-base text-blue-200 leading-relaxed">
                   Always eager to learn, collaborate, and solve real-world problems with code.
                 </p>
-                <p className="text-sm sm:text-base text-blue-200 leading-relaxed">
-                  Focused on clean design, performance, and user experience.
-                </p>
               </div>
             </div>
 
@@ -140,22 +137,55 @@ const Home = () => {
 
             {/* Social Links */}
             <div className="flex items-center gap-4 text-blue-400 w-full mt-4 sm:mt-2">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-300 transition-colors hover:scale-110 transform duration-300">
+              <a href="https://github.com/jAtInn71" target="_blank" rel="noopener noreferrer" className="hover:text-blue-300 transition-colors hover:scale-110 transform duration-300">
                 <Github className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-300 transition-colors hover:scale-110 transform duration-300">
+              <a href="https://www.linkedin.com/in/jatin-kavani-195a80266/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-300 transition-colors hover:scale-110 transform duration-300">
                 <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
-              <a href="mailto:example@example.com" className="hover:text-blue-300 transition-colors hover:scale-110 transform duration-300">
+              <a href="mailto:jatinkavani877@gmail.com" className="hover:text-blue-300 transition-colors hover:scale-110 transform duration-300">
                 <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
             </div>
           </div>
 
           {/* Right: Profile Image */}
-          <div className="flex-1 flex justify-center items-center w-full max-w-md lg:max-w-lg">
-           
-          </div>
+         <div className="flex-1 flex justify-center items-center w-full max-w-lg">
+            <div className="relative w-96 h-96">
+              {/* Central rotating ring */}
+              <div className="absolute inset-0 rounded-full border-4 border-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-30 animate-spin-slow"></div>
+              <div className="absolute inset-8 rounded-full border-2 border-blue-400 opacity-40 animate-spin-reverse"></div>
+              <div className="absolute inset-16 rounded-full border border-purple-400 opacity-50 animate-spin-slow"></div>
+              
+              {/* Center content */}
+              <div className="absolute inset-24 bg-gradient-to-br from-gray-900/90 to-gray-800/90 rounded-full border border-blue-500/30 backdrop-blur-lg flex items-center justify-center shadow-2xl">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-2">
+                    &lt;/&gt;
+                  </div>
+                  <div className="text-blue-300 text-sm font-semibold mb-1">Full Stack</div>
+                  <div className="text-purple-400 text-xs">Developer</div>
+                </div>
+              </div>
+              
+              {/* Orbiting dots */}
+              <div className="absolute inset-0 animate-orbit-1">
+                <div className="absolute top-0 left-1/2 w-3 h-3 bg-blue-400 rounded-full transform -translate-x-1/2 shadow-lg shadow-blue-400/50"></div>
+              </div>
+              <div className="absolute inset-0 animate-orbit-2">
+                <div className="absolute top-1/2 right-0 w-2 h-2 bg-purple-400 rounded-full transform -translate-y-1/2 shadow-lg shadow-purple-400/50"></div>
+              </div>
+              <div className="absolute inset-0 animate-orbit-3">
+                <div className="absolute bottom-0 left-1/2 w-3 h-3 bg-cyan-400 rounded-full transform -translate-x-1/2 shadow-lg shadow-cyan-400/50"></div>
+              </div>
+              <div className="absolute inset-0 animate-orbit-4">
+                <div className="absolute top-1/2 left-0 w-2 h-2 bg-pink-400 rounded-full transform -translate-y-1/2 shadow-lg shadow-pink-400/50"></div>
+              </div>
+              
+              {/* Pulsing background effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-pink-600/10 rounded-full animate-pulse-glow"></div>
+            </div>
+        </div>
         </div>
       </div>
 
@@ -174,25 +204,45 @@ const Home = () => {
       </div>
 
       <style jsx>{`
+        .animate-gradient-flow {
+          background-size: 300% 300%;
+          animation: gradient-flow 4s ease-in-out infinite;
+        }
+        
         .animate-spin-slow {
-          animation: spin 25s linear infinite;
+          animation: spin 20s linear infinite;
         }
         
-        .animate-pulse-slow {
-          animation: pulse-slow 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        
-        .animate-gradient-text {
-          background-size: 400% 400%;
-          animation: gradient-flow 4s ease-in-out infinite, text-glow 2s ease-in-out infinite alternate, letter-wave 3s ease-in-out infinite;
-        }
-        
-        .name-glow {
-          filter: drop-shadow(0 0 20px rgba(139, 69, 255, 0.6)) drop-shadow(0 0 40px rgba(59, 130, 246, 0.4));
+        .animate-spin-reverse {
+          animation: spin 15s linear infinite reverse;
         }
         
         .animate-blink {
           animation: blink 1s infinite;
+        }
+        
+        .animate-float {
+          animation: float 8s ease-in-out infinite;
+        }
+        
+        .animate-pulse-slow {
+          animation: pulse-slow 4s ease-in-out infinite;
+        }
+        
+        .animate-pulse-glow {
+          animation: pulse-glow 3s ease-in-out infinite;
+        }
+        
+        .animate-orbit-1 { animation: orbit 12s linear infinite; }
+        .animate-orbit-2 { animation: orbit 16s linear infinite reverse; }
+        .animate-orbit-3 { animation: orbit 14s linear infinite; }
+        .animate-orbit-4 { animation: orbit 18s linear infinite reverse; }
+        
+        @keyframes gradient-flow {
+          0%, 100% { background-position: 0% 50%; }
+          25% { background-position: 50% 0%; }
+          50% { background-position: 100% 50%; }
+          75% { background-position: 50% 100%; }
         }
         
         @keyframes spin {
@@ -200,90 +250,44 @@ const Home = () => {
           100% { transform: rotate(360deg); }
         }
         
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          33% { transform: translateY(-30px) rotate(2deg); }
-          66% { transform: translateY(-15px) rotate(-2deg); }
-        }
-        
-        .animate-float {
-          animation: float 10s ease-in-out infinite;
-        }
-        
-        @keyframes pulse-slow {
-          0%, 100% { opacity: 0.05; }
-          50% { opacity: 0.15; }
-        }
-        
-        @keyframes gradient-flow {
-          0% { background-position: 0% 50%; }
-          25% { background-position: 50% 0%; }
-          50% { background-position: 100% 50%; }
-          75% { background-position: 50% 100%; }
-          100% { background-position: 0% 50%; }
-        }
-        
-        @keyframes text-glow {
-          0% { filter: drop-shadow(0 0 20px rgba(139, 69, 255, 0.6)) drop-shadow(0 0 40px rgba(59, 130, 246, 0.4)) brightness(1); }
-          100% { filter: drop-shadow(0 0 30px rgba(139, 69, 255, 0.8)) drop-shadow(0 0 60px rgba(59, 130, 246, 0.6)) brightness(1.2); }
-        }
-        
-        @keyframes letter-wave {
-          0%, 100% { transform: translateY(0px); }
-          25% { transform: translateY(-2px); }
-          50% { transform: translateY(0px); }
-          75% { transform: translateY(2px); }
-        }
-        
         @keyframes blink {
           0%, 50% { opacity: 1; }
           51%, 100% { opacity: 0; }
         }
         
-        @keyframes pulse-glow {
-          0%, 100% { 
-            border-color: rgba(96, 165, 250, 0.3);
-            box-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
-          }
-          50% { 
-            border-color: rgba(147, 51, 234, 0.5);
-            box-shadow: 0 0 40px rgba(147, 51, 234, 0.4);
-          }
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) scale(1); }
+          33% { transform: translateY(-20px) scale(1.1); }
+          66% { transform: translateY(-10px) scale(0.9); }
         }
         
-        .animate-pulse-glow {
-          animation: pulse-glow 3s ease-in-out infinite;
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 0.1; }
+          50% { opacity: 0.2; }
+        }
+        
+        @keyframes pulse-glow {
+          0%, 100% { opacity: 0.1; transform: scale(1); }
+          50% { opacity: 0.2; transform: scale(1.05); }
+        }
+        
+        @keyframes orbit {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
         }
         
         /* Mobile optimizations */
-        @media (max-width: 640px) {
-          .animate-float {
-            animation-duration: 7s;
+        @media (max-width: 768px) {
+          .animate-spin-slow {
+            animation-duration: 15s;
           }
           
-          .animate-gradient-text {
-            animation-duration: 3s, 1.5s, 2s;
+          .animate-spin-reverse {
+            animation-duration: 12s;
           }
-        }
-        
-        /* Tablet optimizations */
-        @media (min-width: 641px) and (max-width: 1024px) {
-          .name-glow {
-            filter: drop-shadow(0 0 18px rgba(139, 69, 255, 0.5)) drop-shadow(0 0 35px rgba(59, 130, 246, 0.4));
-          }
-        }
-        
-        /* Desktop optimizations */
-        @media (min-width: 1025px) {
-          .name-glow {
-            filter: drop-shadow(0 0 22px rgba(139, 69, 255, 0.7)) drop-shadow(0 0 45px rgba(59, 130, 246, 0.5));
-          }
-        }
-        
-        /* Responsive adjustments for name animation */
-        @media (max-width: 768px) {
-          .name-glow {
-            filter: drop-shadow(0 0 15px rgba(139, 69, 255, 0.5)) drop-shadow(0 0 30px rgba(59, 130, 246, 0.3));
+          
+          .animate-float {
+            animation-duration: 6s;
           }
         }
         
@@ -291,7 +295,7 @@ const Home = () => {
         @media (max-width: 480px) {
           .min-h-screen {
             min-height: 100vh;
-            min-height: 100dvh; /* Dynamic viewport height */
+            min-height: 100dvh;
           }
         }
       `}</style>
