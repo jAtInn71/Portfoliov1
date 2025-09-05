@@ -198,7 +198,7 @@ const About = () => {
               ref={el => textRefs.current[2] = el}
               className="opacity-0 transform translate-x-10 transition-all duration-700 delay-400 flex items-center justify-center w-full lg:w-1/2 pt-6 lg:pt-0"
             >
-              <div className="relative w-28 h-28 sm:w-36 sm:h-36 md:w-48 md:h-48 lg:w-64 lg:h-64 xl:w-80 xl:h-80 mb-3 sm:mb-4 md:mb-6" ref={profileImageRef}>
+              <div className="relative w-72 h-72 sm:w-36 sm:h-36 md:w-48 md:h-48 lg:w-64 lg:h-64 xl:w-80 xl:h-80 mb-3 sm:mb-4 md:mb-6" ref={profileImageRef}>
                 <div className="w-full h-full bg-gradient-to-br from-blue-900 to-indigo-950 rounded-full flex items-center justify-center shadow-2xl border-2 sm:border-4 border-blue-800 overflow-hidden relative">
                   <img 
                     src={me_photo} 
