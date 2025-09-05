@@ -209,7 +209,8 @@ const Certificates = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-black text-blue-100 font-mono relative" style={{fontFamily: 'Fira Mono, JetBrains Mono, Source Code Pro, monospace'}}>
+    <div className="min-h-screen w-full bg-black text-blue-100 font-mono relative min-h-screen w-full  text-white" style={{fontFamily: 'Fira Mono, JetBrains Mono, Source Code Pro, monospace, '}} > 
+    
       {/* Animated geometric background */}
       <div ref={backgroundShapesRef} className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-900 to-purple-900 opacity-10 rounded-full blur-3xl"></div>
@@ -221,16 +222,13 @@ const Certificates = () => {
       <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 relative z-10" ref={containerRef}>
         {/* Header */}
         <div className="text-center mb-12" ref={headerRef}>
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500" style={{fontFamily:'Fira Mono, JetBrains Mono, Source Code Pro, monospace'}}>
-            Certifications
-          </h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-6 sm:mb-8 drop-shadow-xl" style={{fontFamily:'Fira Mono, JetBrains Mono, Source Code Pro, monospace'}}> <span className="inline-block hover:scale-105 transition-transform duration-300 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Certifications</span> </h1>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
           <p className="text-xl text-blue-200 max-w-3xl mx-auto">
             My journey of continuous learning, growth, and curiosity. Here are some milestones and future goals!
           </p>
         </div>
         
-        {/* Filter buttons */}
        
 
         {/* Certificates Grid */}
