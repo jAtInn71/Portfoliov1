@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ChevronDown, Github, Linkedin, Mail, ArrowRight, Code } from 'lucide-react';
-import resumePdf from '../assets/JATIN KAVANI.pdf';
-import Loader from '../components/Loader';
+import { ChevronDown, Github, Linkedin, Mail, ArrowRight, Download } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import gsap from 'gsap';
+
 
 const Home = () => {
   // smooth scroll helper (keeps behavior consistent with Navbar)
@@ -83,11 +84,7 @@ const Home = () => {
   }, [isLoading]);
 
   return (
-    <div className="min-h-screen w-full bg-black text-blue-100 font-mono relative overflow-hidden" style={{fontFamily: 'Fira Mono, JetBrains Mono, Source Code Pro, monospace'}}>
-      
-      {/* Import and use the Loader component */}
-      {isLoading && <Loader />}
-      
+    <div className="min-h-screen w-full bg-black text-blue-100 font-mono relative overflow-hidden pt-16" style={{fontFamily: 'Fira Mono, JetBrains Mono, Source Code Pro, monospace'}}>
       {/* Visually appealing animated background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Minimal bouncing circles, responsive positions/sizes */}
@@ -103,37 +100,34 @@ const Home = () => {
         {/* Existing background gradients and shapes */}
        
       </div>
-      
-      {/* Main Content Container */}
-      <div className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 py-4 relative z-20" style={{marginTop: "-40px"}}>
-        {/* Hero Section - Perfect center alignment */}
-        <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-10" ref={heroRef}>
-          
+      <div className="container mx-auto px-4 sm:px-6 py-8 relative z-20">
+        {/* Hero Section */}
+        <div className="min-h-screen flex flex-col lg:flex-row items-center lg:items-center justify-center" ref={heroRef}>
           {/* Left: Text Content, Buttons, Social Links */}
           <div className="flex-1 flex flex-col justify-center items-start text-left w-full max-w-2xl">
             {/* Main heading with enhanced typing effect and new name animation */}
             <div 
               ref={textRef}
-              className="opacity-0 transform translate-y-10 transition-all duration-1000 mb-4"
+              className="opacity-0 transform translate-y-10 transition-all duration-1000 mb-8"
             >
               <div className="mb-4">
                 <span className="text-blue-400 text-lg sm:text-xl md:text-2xl font-mono block mb-2">
                   <span className="text-cyan-400">&lt;</span>Hello<span className="text-cyan-400">/&gt;</span> I'm
                 </span>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-2 sm:mb-3 tracking-tighter leading-tight relative">
-                  <span className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 via-pink-400 via-orange-400 to-yellow-400 animate-gradient-text drop-shadow-2xl name-glow">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-3 sm:mb-4 tracking-tighter leading-tight relative">
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-300 to-purple-500 animate-pulse-slow drop-shadow-2xl" style={{opacity: 1, filter: 'brightness(1.6) drop-shadow(0 0 16px #7f5af0)'}}>
                     Jatin Kavani
                   </span>
                   <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur-sm animate-pulse"></span>
                 </h1>
-                <div className="text-lg sm:text-xl lg:text-2xl text-blue-300 font-bold h-8 my-2">
+                <div className="text-lg sm:text-xl lg:text-2xl text-blue-300 font-bold h-7 sm:h-8 my-3">
                   <span>{typedText}</span>
                   <span className="inline-block w-1 h-6 bg-blue-400 ml-1 animate-blink"></span>
                 </div>
               </div>
               
-              <div className="w-full space-y-2 bg-gray-900/80 rounded-xl shadow-lg p-3 sm:p-5 border border-blue-900/30 mb-2">
-                <p className="text-sm sm:text-base text-blue-200 leading-relaxed">
+              <div className="max-w-4xl mx-auto space-y-4 bg-gray-900/80 rounded-xl shadow-lg p-4 sm:p-6 md:p-8 border border-blue-900/30">
+                <p className="text-xs sm:text-sm md:text-base text-blue-200 leading-relaxed">
                   Computer Engineering student at Silver Oak University, transforming ideas into
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 font-bold"> digital reality</span>
                 </p>
@@ -149,60 +143,35 @@ const Home = () => {
             {/* CTA Buttons */}
             <div 
               ref={ctaRef}
-              className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3 mb-3 sm:mb-4 w-full opacity-0 transform translate-y-10 transition-all duration-1000"
+              className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 mb-6 mt-6 w-full"
             >
-              <button
-                onClick={() => window.open(resumePdf, '_blank')}
-                className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg text-white font-medium flex items-center justify-center gap-2 text-sm hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-blue-500/30 w-full sm:w-auto min-w-[140px]"
-              >
-                Resume
-                <ArrowRight className="w-4 h-4" />
-              </button>
-              <button
-                onClick={() => scrollToSection('skills')}
-                className="px-6 py-2 bg-gray-800/70 border border-blue-800/50 rounded-lg text-blue-300 font-medium flex items-center justify-center gap-2 text-sm hover:bg-gray-700/50 transition-all duration-300 hover:scale-105 transform w-full sm:w-auto min-w-[120px]"
-              >
-                Skills
-              </button>
+              <Link to="/projects" className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg text-white font-medium flex items-center gap-2 text-sm hover:scale-105 transform transition-transform shadow-lg hover:shadow-blue-500/20 w-full sm:w-auto">
+                View My Work
+                <ArrowRight className="w-3 h-3" />
+              </Link>
+              <Link to="/about" className="px-4 py-2 bg-gray-800/70 border border-blue-800/50 rounded-lg text-blue-300 font-medium flex items-center gap-2 text-sm hover:bg-gray-700/50 transition-colors hover:scale-105 transform w-full sm:w-auto">
+                About Me
+              </Link>
             </div>
-          
+
+            {/* Social Links */}
+            <div className="flex items-center gap-3 sm:gap-4 text-blue-400 mb-12 sm:mb-16 w-full">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-300 transition-colors hover:scale-110 transform">
+                <Github className="w-4 h-4 sm:w-5 sm:h-5" />
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-300 transition-colors hover:scale-110 transform">
+                <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
+              </a>
+              <a href="mailto:example@example.com" className="hover:text-blue-300 transition-colors hover:scale-110 transform">
+                <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
+              </a>
+            </div>
           </div>
 
           {/* Right: Profile Image */}
-         <div className="flex-1 flex justify-center items-center w-full max-w-lg">
-            <div className="relative w-96 h-96">
-              {/* Central rotating ring */}
-              <div className="absolute inset-0 rounded-full border-4 border-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-30 animate-spin-slow"></div>
-              <div className="absolute inset-8 rounded-full border-2 border-blue-400 opacity-40 animate-spin-reverse"></div>
-              <div className="absolute inset-16 rounded-full border border-purple-400 opacity-50 animate-spin-slow"></div>
-              
-              {/* Center content */}
-              <div className="absolute inset-24 bg-gradient-to-br from-gray-900/90 to-gray-800/90 rounded-full border border-blue-500/30 backdrop-blur-lg flex items-center justify-center shadow-2xl">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-2">
-                    &lt;/&gt;
-                  </div>
-                  <div className="text-blue-300 text-sm font-semibold mb-1">Full Stack</div>
-                  <div className="text-purple-400 text-xs">Developer</div>
-                </div>
-              </div>
-              
-              {/* Orbiting dots */}
-              <div className="absolute inset-0 animate-orbit-1">
-                <div className="absolute top-0 left-1/2 w-3 h-3 bg-blue-400 rounded-full transform -translate-x-1/2 shadow-lg shadow-blue-400/50"></div>
-              </div>
-              <div className="absolute inset-0 animate-orbit-2">
-                <div className="absolute top-1/2 right-0 w-2 h-2 bg-purple-400 rounded-full transform -translate-y-1/2 shadow-lg shadow-purple-400/50"></div>
-              </div>
-              <div className="absolute inset-0 animate-orbit-3">
-                <div className="absolute bottom-0 left-1/2 w-3 h-3 bg-cyan-400 rounded-full transform -translate-x-1/2 shadow-lg shadow-cyan-400/50"></div>
-              </div>
-              
-              
-              {/* Pulsing background effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-pink-600/0 rounded-full animate-pulse-glow"></div>
-            </div>
-        </div>
+          <div className="flex-1 flex justify-center items-center mt-8 lg:mt-0 w-full">
+            <img src="bg _image.png" alt="Profile"  className="w-40 h-40 sm:w-72 sm:h-72 md:w-96 md:h-96 rounded-full shadow-2xl object-cover bg-transparent" />
+          </div>
         </div>
       </div>
 
@@ -221,12 +190,6 @@ const Home = () => {
       </div>
 
       <style jsx>{`
-        /* Animation classes for page elements (not loader-specific) */
-        .animate-gradient-flow {
-          background-size: 300% 300%;
-          animation: gradient-flow 4s ease-in-out infinite;
-        }
-        
         .animate-spin-slow {
           animation: spin 20s linear infinite;
         }
@@ -244,24 +207,12 @@ const Home = () => {
         }
         
         .animate-pulse-slow {
-          animation: pulse-slow 4s ease-in-out infinite;
+          animation: pulse-slow 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
         
-        .animate-pulse-glow {
-          animation: pulse-glow 3s ease-in-out infinite;
-        }
-        
-        /* Orbit animations for profile section */
-        .animate-orbit-1 { animation: orbit 12s linear infinite; }
-        .animate-orbit-2 { animation: orbit 16s linear infinite reverse; }
-        .animate-orbit-3 { animation: orbit 14s linear infinite; }
-        
-        /* Animation keyframes */
-        @keyframes gradient-flow {
-          0%, 100% { background-position: 0% 50%; }
-          25% { background-position: 50% 0%; }
-          50% { background-position: 100% 50%; }
-          75% { background-position: 50% 100%; }
+        .animate-gradient {
+          background-size: 300% 300%;
+          animation: gradient-shift 8s ease infinite;
         }
         
         @keyframes spin {
@@ -285,19 +236,10 @@ const Home = () => {
           50% { opacity: 0.2; }
         }
         
-        @keyframes pulse-glow {
-          0%, 100% { opacity: 0.1; transform: scale(1); }
-          50% { opacity: 0.2; transform: scale(1.05); }
-        }
-        
-        @keyframes pulse {
-          0%, 100% { opacity: 0.8; transform: scale(1); }
-          50% { opacity: 1; transform: scale(1.05); }
-        }
-        
-        @keyframes orbit {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
+        @keyframes gradient-shift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
         }
         
         /* Mobile optimizations */
