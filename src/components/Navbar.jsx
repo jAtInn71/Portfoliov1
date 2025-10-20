@@ -91,10 +91,10 @@ const Navbar = () => {
 
   const menuItems = [
     { href: "home", label: "Home" },
-    { href: "skills", label: "Skills" },
-    { href: "projects", label: "Projects" },
-    { href: "certificates", label: "Certificates" },
     { href: "about", label: "About" },
+    { href: "skills", label: "Skills" },
+    { href: "certificates", label: "Certificates" },
+    { href: "projects", label: "Projects" },
     { href: "contact", label: "Contact" },
   ];
 
@@ -110,9 +110,10 @@ const Navbar = () => {
           <a
             href="#home"
             onClick={(e) => scrollToSection(e, "home")}
-            className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 hover:from-pink-500 hover:to-purple-600 transition-all duration-300"
+            className="nav-brand text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 hover:from-pink-500 hover:to-purple-600 transition-all duration-300"
+            style={{ fontFamily: "'Pacifico', cursive" }}
           >
-            Portfolio
+            J.K
           </a>
 
           {/* Desktop Menu */}

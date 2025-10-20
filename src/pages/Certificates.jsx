@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Award, ExternalLink, Calendar, Building, CheckCircle, Clock, BookOpen, ChevronDown } from 'lucide-react';
+// Certificate images may be external URLs provided per-certificate.
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -131,7 +132,9 @@ const Certificates = () => {
       issuer: "National Skill Development Corporation",
       date: "2024",
       status: "completed",
-      description: "Comprehensive course covering computer networking concepts, protocols, and security"
+      description: "Comprehensive course covering computer networking concepts, protocols, and security",
+      image: 'https://wie20333.wordpress.com/wp-content/uploads/2025/10/screenshot-2025-09-04-190752-1.png',
+
     },
     {
       id: 2,
@@ -139,7 +142,9 @@ const Certificates = () => {
       issuer: "National Skill Development Corporation",
       date: "2024",
       status: "completed",
-      description: "Comprehensive course on ethical hacking, penetration testing, and network security"
+      description: "Comprehensive course on ethical hacking, penetration testing, and network security",
+      image: 'https://wie20333.wordpress.com/wp-content/uploads/2025/10/screenshot-2025-09-04-190844.png',
+      
     },
     {
       id: 3,
@@ -147,7 +152,9 @@ const Certificates = () => {
       issuer: "IEEE Learning Network",
       date: "2024",
       status: "completed",
-      description: "Comprehensive course covering Java programming from beginner to advanced topics"
+      description: "Comprehensive course covering Java programming from beginner to advanced topics",
+      image: 'https://wie20333.wordpress.com/wp-content/uploads/2025/10/certificate-java.jpg',
+      
     },
     {
       id: 4,
@@ -155,7 +162,9 @@ const Certificates = () => {
       issuer: "Udemy",
       date: "2024",
       status: "completed",
-      description: "Comprehensive course on Python programming with a focus on ethical hacking techniques"
+      description: "Comprehensive course on Python programming with a focus on ethical hacking techniques",
+      image: 'https://wie20333.wordpress.com/wp-content/uploads/2025/10/certificate-hacking.jpg',
+      
     },
     {
       id: 5,
@@ -163,11 +172,39 @@ const Certificates = () => {
       issuer: "IEEE Student Branch",
       date: "2024",
       status: "completed",
-      description: "Leadership development and professional skills for IEEE student members"
+      description: "Leadership development and professional skills for IEEE student members",
+      image: 'https://your-wordpress-site.com/uploads/certificate-ieee-core-committee.jpg',
+      
     }
   ];
 
   const filteredCertificates = filter === 'all' ? certificates : certificates.filter(cert => cert.status === filter);
+
+  // Modal state to show certificate image and related data
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedCert, setSelectedCert] = useState(null);
+  const modalOverlayRef = useRef(null);
+
+  const openModalWithImage = (cert) => {
+    setSelectedCert(cert);
+    setSelectedImage(cert?.image ?? null);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedImage(null);
+  };
+
+  // Close on Escape
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'Escape' && isModalOpen) closeModal();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isModalOpen]);
 
   const getStatusIcon = (status) => {
     switch (status) {
@@ -209,7 +246,8 @@ const Certificates = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-black text-blue-100 font-mono relative" style={{fontFamily: 'Fira Mono, JetBrains Mono, Source Code Pro, monospace'}}>
+    <div className="min-h-screen w-full bg-black text-blue-100 font-mono relative min-h-screen w-full  text-white" style={{fontFamily: 'Fira Mono, JetBrains Mono, Source Code Pro, monospace, '}} > 
+    
       {/* Animated geometric background */}
       <div ref={backgroundShapesRef} className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-900 to-purple-900 opacity-10 rounded-full blur-3xl"></div>
@@ -221,16 +259,13 @@ const Certificates = () => {
       <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 relative z-10" ref={containerRef}>
         {/* Header */}
         <div className="text-center mb-12" ref={headerRef}>
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500" style={{fontFamily:'Fira Mono, JetBrains Mono, Source Code Pro, monospace'}}>
-            Certifications
-          </h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-6 sm:mb-8 drop-shadow-xl" style={{fontFamily:'Fira Mono, JetBrains Mono, Source Code Pro, monospace'}}> <span className="inline-block hover:scale-105 transition-transform duration-300 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Certifications</span> </h1>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
           <p className="text-xl text-blue-200 max-w-3xl mx-auto">
             My journey of continuous learning, growth, and curiosity. Here are some milestones and future goals!
           </p>
         </div>
         
-        {/* Filter buttons */}
        
 
         {/* Certificates Grid */}
@@ -275,7 +310,10 @@ const Certificates = () => {
                 </p>
                 
                 {/* View Button (placeholder) */}
-                <button className="mt-4 text-xs sm:text-sm text-blue-400 hover:text-blue-300 flex items-center gap-1 transition-colors">
+                <button
+                  onClick={() => openModalWithImage(certificate)}
+                  className="mt-4 text-xs sm:text-sm text-blue-400 hover:text-blue-300 flex items-center gap-1 transition-colors"
+                >
                   <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
                   View Certificate
                 </button>
@@ -323,6 +361,47 @@ const Certificates = () => {
           animation: pulse-glow 2s infinite;
         }
       `}</style>
+
+      {/* Modal for viewing certificate image */}
+      {isModalOpen && (
+        <div
+          ref={modalOverlayRef}
+          onClick={(e) => { if (e.target === modalOverlayRef.current) closeModal(); }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
+          aria-modal="true"
+          role="dialog"
+        >
+          <div className="relative max-w-4xl w-full max-h-[90vh] overflow-auto rounded-lg shadow-2xl">
+            <button
+              onClick={closeModal}
+              className="absolute top-2 right-2 z-50 bg-black/60 text-white rounded-full p-2 hover:bg-black/80"
+              aria-label="Close certificate"
+            >
+              ✕
+            </button>
+
+            <img
+              src={selectedImage}
+              alt="Certificate"
+              className="w-full h-auto object-contain rounded-md"
+              style={{ background: '#0b1220' }}
+            />
+            {/* WordPress link / external link button */}
+            {selectedCert?.wordpressLink && (
+              <div className="p-4 bg-gradient-to-t from-black/60 to-transparent rounded-b-lg text-center">
+                <a
+                  href={selectedCert.wordpressLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-md text-sm"
+                >
+                  Open on WordPress
+                </a>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

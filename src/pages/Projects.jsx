@@ -19,8 +19,7 @@ const Projects = () => {
       category: "Web Development",
       status: "Completed",
       date: "2024",
-      liveUrl: "#",
-      githubUrl: "#"
+      liveUrl: "https://port-12.vercel.app/", 
     },
     {
       id: 2,
@@ -31,7 +30,6 @@ const Projects = () => {
       status: "Completed",
       date: "2023",
       liveUrl: "#",
-      githubUrl: "#"
     },
     {
       id: 3,
@@ -41,8 +39,7 @@ const Projects = () => {
       category: "Web Development",
       status: "Live",
       date: "2023",
-      liveUrl: "#",
-      githubUrl: "#"
+      liveUrl: "https://ieee-sou-sb-17.vercel.app/",
     },
 
   ];
@@ -187,9 +184,7 @@ const Projects = () => {
   <div className="container mx-auto px-3 sm:px-4 md:px-6 py-8 sm:py-12 md:py-16 relative z-10" ref={containerRef}>
         {/* Header */}
         <div className="text-center mb-8 sm:mb-10 md:mb-16 lg:mb-20" ref={headerRef}>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-3 sm:mb-4 drop-shadow-lg" style={{fontFamily:'Fira Mono, JetBrains Mono, Source Code Pro, monospace'}}>
-            <span className="inline-block hover:scale-105 transition-transform duration-300 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">My</span> <span className="inline-block hover:scale-105 transition-transform duration-300">Projects</span>
-          </h1>
+         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-6 sm:mb-8 drop-shadow-xl" style={{fontFamily:'Fira Mono, JetBrains Mono, Source Code Pro, monospace'}}> <span className="inline-block hover:scale-105 transition-transform duration-300 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">My</span>{" "} <span className="inline-block hover:scale-105 transition-transform duration-300">Projects</span> </h1>
           <div className="w-12 sm:w-16 md:w-20 lg:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-3 sm:mb-6"></div>
           <p className="text-xs sm:text-sm md:text-base lg:text-xl text-blue-200 max-w-3xl mx-auto px-3">
             A showcase of my development projects, from web applications to full-stack solutions, 
@@ -262,9 +257,7 @@ const Projects = () => {
                   Start a Project
                   <ArrowRight className="inline ml-1.5 sm:ml-2 w-3 h-3 sm:w-4 sm:h-4 transition-transform duration-300 transform group-hover:translate-x-1" />
                 </button>
-                <button className="border border-blue-900 text-blue-200 px-3 py-1.5 sm:px-4 sm:py-2 md:px-6 md:py-2.5 rounded-md sm:rounded-lg hover:bg-blue-900/20 transition-all font-medium text-xs md:text-sm hover:border-blue-700">
-                  View Resume
-                </button>
+               
               </div>
             </div>
           </div>

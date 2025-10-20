@@ -219,9 +219,7 @@ const Skills = () => {
       <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 relative z-10" ref={containerRef}>
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-20" ref={headerRef}>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-3 sm:mb-4 drop-shadow-lg" style={{fontFamily:'Fira Mono, JetBrains Mono, Source Code Pro, monospace'}}>
-            <span className="inline-block hover:scale-105 transition-transform duration-300 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">My</span> <span className="inline-block hover:scale-105 transition-transform duration-300">Skills</span>
-          </h1>
+         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-6 sm:mb-8 drop-shadow-xl" style={{fontFamily:'Fira Mono, JetBrains Mono, Source Code Pro, monospace'}}> <span className="inline-block hover:scale-105 transition-transform duration-300 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">My</span>{" "} <span className="inline-block hover:scale-105 transition-transform duration-300">Skills</span> </h1>
           <div className="w-12 sm:w-16 md:w-20 lg:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-3 sm:mb-4 md:mb-6"></div>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-blue-200 max-w-3xl mx-auto px-2">
             Technologies, tools, and platforms I work with to create innovative solutions.

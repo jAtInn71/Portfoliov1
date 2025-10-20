@@ -54,7 +54,30 @@ const Footer = () => {
           {/* Quick Links */}
           <div className="col-span-1">
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+            {/* Mobile: 2 columns x 3 rows */}
+            <ul className="block md:hidden grid grid-cols-2 gap-y-2 gap-x-6">
+              <li>
+                <a href="#home" className="text-gray-400 hover:text-blue-400 transition-colors">Home</a>
+              </li>
+              <li>
+                <a href="#about" className="text-gray-400 hover:text-blue-400 transition-colors">About</a>
+              </li>
+              <li>
+                <a href="#skills" className="text-gray-400 hover:text-blue-400 transition-colors">Skills</a>
+              </li>
+              <li>
+                <a href="#projects" className="text-gray-400 hover:text-blue-400 transition-colors">Projects</a>
+              </li>
+              <li>
+                <a href="#certificates" className="text-gray-400 hover:text-blue-400 transition-colors">Certificates</a>
+              </li>
+              <li>
+                <a href="#contact" className="text-gray-400 hover:text-blue-400 transition-colors">Contact</a>
+              </li>
+            </ul>
+
+            {/* Desktop: vertical list */}
+            <ul className="hidden md:block space-y-2">
               <li>
                 <a href="#home" className="text-gray-400 hover:text-blue-400 transition-colors">Home</a>
               </li>
@@ -107,12 +130,9 @@ const Footer = () => {
         {/* Bottom Copyright */}
         <div className="border-t border-gray-800/40 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-sm text-gray-400 mb-4 sm:mb-0">
-            © {currentYear} Your Portfolio. All rights reserved.
+            © {currentYear} Jatin Kavani — UI/UX Designer & Frontend Developer.
           </p>
-          <div>
-            <a href="#" className="text-sm text-gray-400 hover:text-blue-400 transition-colors mx-3">Privacy Policy</a>
-            <a href="#" className="text-sm text-gray-400 hover:text-blue-400 transition-colors mx-3">Terms of Service</a>
-          </div>
+          
         </div>
       </div>
     </footer>

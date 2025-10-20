@@ -17,10 +17,32 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Here you would typically send the data to a server
-    alert("Message sent successfully! (Demo)");
+    // send to backend API
+    setSubmitting(true);
+    setError(null);
+    fetch((import.meta.env.VITE_CONTACT_API_URL || '') + '/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    })
+      .then(async (res) => {
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          throw new Error((data && data.errors && data.errors.join('\n')) || data.error || 'Failed to send message');
+        }
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setSuccess('Message sent successfully!');
+      })
+      .catch((err) => {
+        console.error('Contact submit error', err);
+        setError(err.message || 'Failed to send message');
+      })
+      .finally(() => setSubmitting(false));
   };
+
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
 
   return (
     <div className="min-h-screen w-full bg-black py-20 px-4 sm:px-6 relative overflow-hidden">
@@ -31,11 +53,7 @@ const Contact = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold mb-6 inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-purple-600">
-            <span className="text-blue-400">&lt;</span>
-            Contact Me
-            <span className="text-purple-500">/&gt;</span>
-          </h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-6 sm:mb-8 drop-shadow-xl" style={{fontFamily:'Fira Mono, JetBrains Mono, Source Code Pro, monospace'}}> <span className="text-blue-400"></span> <span className="inline-block hover:scale-105 transition-transform duration-300 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 mx-1">Contact Me</span> <span className="text-purple-500"></span> </h1>
           <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Feel free to reach out for collaborations, opportunities, or just to say hello!
@@ -100,11 +118,18 @@ const Contact = () => {
               </div>
               <button 
                 type="submit"
-                className="w-full py-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
+                className="w-full py-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 disabled:opacity-60"
+                disabled={submitting}
               >
-                Send Message
+                {submitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
+            {error && (
+              <div className="mt-4 text-sm text-red-400">{error}</div>
+            )}
+            {success && (
+              <div className="mt-4 text-sm text-green-400">{success}</div>
+            )}
           </div>
           
           {/* Contact Information */}
