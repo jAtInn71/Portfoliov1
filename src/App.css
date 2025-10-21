@@ -40,3 +40,32 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Smooth scrolling and per-section snap for pleasant single-scroll animation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Apply scroll snapping to the main container so each section snaps into view on scroll */
+main {
+  scroll-snap-type: y mandatory;
+  /* ensure anchored scroll respects navbar height (Tailwind uses pt-14/pt-16) */
+  scroll-padding-top: 3.5rem; /* 56px default */
+}
+
+@media (min-width: 640px) {
+  main { scroll-padding-top: 4rem; } /* matches sm:pt-16 (64px) */
+}
+
+/* Ensure each full-page section snaps to start */
+section {
+  scroll-snap-align: start;
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  main { scroll-snap-type: none; }
+  .logo { transition: none; }
+  .card, .reveal { transition: none !important; transform: none !important; }
+}

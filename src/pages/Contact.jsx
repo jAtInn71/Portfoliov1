@@ -45,16 +45,16 @@ const Contact = () => {
   const [success, setSuccess] = useState(null);
 
   return (
-    <div className="min-h-screen w-full bg-black py-20 px-4 sm:px-6 relative overflow-hidden">
+    <div className="min-h-screen w-full bg-black py-8 px-4 sm:px-6 relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-40 left-20 w-72 h-72 rounded-full bg-blue-500/5 blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-40 right-20 w-96 h-96 rounded-full bg-purple-500/5 blur-3xl pointer-events-none"></div>
       
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-6 sm:mb-8 drop-shadow-xl" style={{fontFamily:'Fira Mono, JetBrains Mono, Source Code Pro, monospace'}}> <span className="text-blue-400"></span> <span className="inline-block hover:scale-105 transition-transform duration-300 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 mx-1">Contact Me</span> <span className="text-purple-500"></span> </h1>
-          <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
+        <div className="text-center mb-8">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-4 sm:mb-6 drop-shadow-xl" style={{fontFamily:'Fira Mono, JetBrains Mono, Source Code Pro, monospace'}}> <span className="text-blue-400"></span> <span className="inline-block hover:scale-105 transition-transform duration-300 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 mx-1">Contact Me</span> <span className="text-purple-500"></span> </h1>
+          <div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-4"></div>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Feel free to reach out for collaborations, opportunities, or just to say hello!
           </p>

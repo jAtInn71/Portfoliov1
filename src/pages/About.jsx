@@ -114,16 +114,16 @@ const About = () => {
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 sm:px-6 md:px-8 py-12 md:py-20 relative z-10" ref={containerRef}>
+  <div className="container mx-auto px-4 sm:px-6 md:px-8 py-6 md:py-8 relative z-10" ref={containerRef}>
         
         {/* Header */}
-        <div ref={el => textRefs.current[0] = el} className="text-center mb-12 md:mb-20">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 drop-shadow-2xl">
+  <div ref={el => textRefs.current[0] = el} className="text-center mb-6 md:mb-8">
+    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-4 drop-shadow-2xl">
             <span className="inline-block hover:scale-110 transition-transform duration-300 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">About</span>
             {" "}
             <span className="inline-block hover:scale-110 transition-transform duration-300">Me</span>
           </h1>
-          <div className="w-16 md:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
+          <div className="w-16 md:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-4"></div>
         </div>
 
         {/* Main Content Grid */}
@@ -161,11 +161,11 @@ const About = () => {
                     <ul className="space-y-2 text-sm md:text-base">
                       <li className="flex items-start gap-2">
                         <span className="text-blue-400 mt-1">▹</span>
-                        <span>Executive Member - IEEE SOU WIE SB AG</span>
+                        <span>Webmaster - IEEE SOU WIE SB AG (Executive)</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="text-purple-400 mt-1">▹</span>
-                        <span>Webmaster - Student Organization</span>
+                        <span>Member - Google Developer Student Club</span>
                       </li>
                     </ul>
                   </div>

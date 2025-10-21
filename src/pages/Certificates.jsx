@@ -256,11 +256,11 @@ const Certificates = () => {
         <div className="absolute bottom-1/3 left-1/2 w-64 h-64 bg-gradient-to-bl from-indigo-800 to-blue-900 opacity-10 rounded-full blur-2xl"></div>
       </div>
       
-      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 relative z-10" ref={containerRef}>
+      <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 md:py-10 relative z-10" ref={containerRef}>
         {/* Header */}
-        <div className="text-center mb-12" ref={headerRef}>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-6 sm:mb-8 drop-shadow-xl" style={{fontFamily:'Fira Mono, JetBrains Mono, Source Code Pro, monospace'}}> <span className="inline-block hover:scale-105 transition-transform duration-300 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Certifications</span> </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
+        <div className="text-center mb-6" ref={headerRef}>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-4 sm:mb-6 drop-shadow-xl" style={{fontFamily:'Fira Mono, JetBrains Mono, Source Code Pro, monospace'}}> <span className="inline-block hover:scale-105 transition-transform duration-300 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Certifications</span> </h1>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-4"></div>
           <p className="text-xl text-blue-200 max-w-3xl mx-auto">
             My journey of continuous learning, growth, and curiosity. Here are some milestones and future goals!
           </p>

@@ -181,11 +181,11 @@ const Projects = () => {
       <div className="absolute top-3/4 left-1/3 w-28 sm:w-36 md:w-40 lg:w-48 h-28 sm:h-36 md:h-40 lg:h-48 bg-cyan-700 opacity-10 rounded-full blur-md sm:blur-lg md:blur-xl lg:blur-2xl"></div>
       <div className="absolute top-1/4 right-1/3 w-32 sm:w-40 md:w-48 lg:w-56 h-32 sm:h-40 md:h-48 lg:h-56 bg-indigo-900 opacity-10 rounded-full blur-md sm:blur-lg md:blur-xl lg:blur-2xl"></div>
     </div>
-  <div className="container mx-auto px-3 sm:px-4 md:px-6 py-8 sm:py-12 md:py-16 relative z-10" ref={containerRef}>
-        {/* Header */}
-        <div className="text-center mb-8 sm:mb-10 md:mb-16 lg:mb-20" ref={headerRef}>
-         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-6 sm:mb-8 drop-shadow-xl" style={{fontFamily:'Fira Mono, JetBrains Mono, Source Code Pro, monospace'}}> <span className="inline-block hover:scale-105 transition-transform duration-300 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">My</span>{" "} <span className="inline-block hover:scale-105 transition-transform duration-300">Projects</span> </h1>
-          <div className="w-12 sm:w-16 md:w-20 lg:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-3 sm:mb-6"></div>
+  <div className="container mx-auto px-3 sm:px-4 md:px-6 py-6 sm:py-8 md:py-10 relative z-10" ref={containerRef}>
+    {/* Header */}
+    <div className="text-center mb-6 sm:mb-8 md:mb-12 lg:mb-14" ref={headerRef}>
+     <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-4 sm:mb-6 drop-shadow-xl" style={{fontFamily:'Fira Mono, JetBrains Mono, Source Code Pro, monospace'}}> <span className="inline-block hover:scale-105 transition-transform duration-300 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">My</span>{" "} <span className="inline-block hover:scale-105 transition-transform duration-300">Projects</span> </h1>
+      <div className="w-12 sm:w-16 md:w-20 lg:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-2 sm:mb-3 md:mb-4"></div>
           <p className="text-xs sm:text-sm md:text-base lg:text-xl text-blue-200 max-w-3xl mx-auto px-3">
             A showcase of my development projects, from web applications to full-stack solutions, 
             demonstrating my skills and passion for creating innovative digital experiences.

@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Code } from 'lucide-react';
 
 const Loader = ({ 
   title = "Loading", 
   subtitle = "J. K.",
   size = "md",
-  icon = <Code className="w-8 h-8 text-cyan-400" />
+  icon = <Code className="w-8 h-8 text-cyan-400" />,
+  isVisible = true,
+  onExited = () => {}
 }) => {
   // Size variants
   const sizeClasses = {
@@ -15,9 +17,27 @@ const Loader = ({
   };
 
   const loaderSize = sizeClasses[size] || sizeClasses.md;
+  const rootRef = useRef(null);
+
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+
+    const handleTransitionEnd = (e) => {
+      if (e.target === el && e.propertyName === 'opacity' && !isVisible) {
+        onExited();
+      }
+    };
+
+    el.addEventListener('transitionend', handleTransitionEnd);
+    return () => el.removeEventListener('transitionend', handleTransitionEnd);
+  }, [isVisible, onExited]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
+    <div
+      ref={rootRef}
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-black loader-root ${isVisible ? '' : 'loader--hidden'}`}
+    >
       <div className="flex flex-col items-center">
         <div className="relative">
           <div className={`${loaderSize} rounded-full border-t-4 border-r-4 border-blue-400 loader-spin`}></div>
@@ -35,6 +55,18 @@ const Loader = ({
       </div>
 
       <style jsx>{`
+        .loader-root {
+          transition: opacity 360ms ease, transform 360ms ease;
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .loader--hidden {
+          opacity: 0;
+          transform: translateY(-6px);
+          pointer-events: none;
+        }
+
         @keyframes loader-spin {
           0% { transform: rotate(0deg); }
           100% { transform: rotate(360deg); }
