@@ -1,0 +1,23 @@
+services:
+  # Backend service configuration
+  - type: web
+    name: sport-portfolio-backend
+    runtime: node
+    rootDir: backend_sport
+    plan: free
+    buildCommand: bash ../build.sh
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      # You'll need to set these in the Render dashboard
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
+      - key: CONTACT_RECEIVER
+        value: jatinkavani877@gmail.com
+      - key: CORS_ORIGIN
+        value: https://portfoliov1-jatinn71.vercel.app
