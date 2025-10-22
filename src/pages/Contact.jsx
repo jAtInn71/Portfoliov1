@@ -254,7 +254,7 @@ const Contact = () => {
                   </svg>
                 </a>
                 {/* Medium */}
-                <a href="https://medium.com/@yourusername" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-900/80 flex items-center justify-center hover:bg-green-500/20 transition-all">
+                <a href="https://medium.com/@jatinkavani69775" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-900/80 flex items-center justify-center hover:bg-green-500/20 transition-all">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-300">
                     <path d="M18 41.578c0 .89-.476 1.421-1.152 1.421-.225 0-.451-.05-.676-.15L10.5 39.375v-.481l5.675-9.382v.481L10.5 39.375 3.847 36c-.225-.15-.426-.451-.426-.752V22.46c0-.301.176-.602.476-.677l.225-.075L12.004 18l.45.677-8.055 13.006v.451l6.423-10.364L18 24.94v16.639z"></path>
                   </svg>
