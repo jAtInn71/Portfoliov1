@@ -93,8 +93,8 @@ const Navbar = () => {
     { href: "home", label: "Home" },
     { href: "about", label: "About" },
     { href: "skills", label: "Skills" },
-    { href: "certificates", label: "Certificates" },
     { href: "projects", label: "Projects" },
+    { href: "certificates", label: "Certificates" },
     { href: "contact", label: "Contact" },
   ];
 
