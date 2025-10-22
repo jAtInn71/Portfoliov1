@@ -232,10 +232,10 @@ const Contact = () => {
             <div className="mt-10 pt-8 border-t border-gray-800/40">
               <h3 className="text-lg font-medium text-white mb-4">Connect With Me</h3>
               <div className="flex space-x-4">
-                {/* Twitter */}
+               {/* X (Twitter) */}
                 <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-900/80 flex items-center justify-center hover:bg-blue-500/20 transition-all">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-300">
-                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-gray-300">
+                    <path d="M6.5 3h4.7l3.3 5.2L18.5 3H22l-6.2 8.7L22 21h-4.7l-3.5-5.5L5.5 21H2l6.3-8.8L2 3h4.5zm2.1 2L17 19h2l-6.3-8.8L19 5h-2l-6.4 8.7L4 5h2l6.6 8.7L4 19h2l6.6-8.7z" fill="currentColor"/>
                   </svg>
                 </a>
                 {/* Instagram */}
