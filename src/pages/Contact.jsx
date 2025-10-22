@@ -5,8 +5,10 @@ const Contact = () => {
     name: "",
     email: "",
     subject: "",
-    message: ""
+    message: "",
+    phone: ""
   });
+
 
   const handleChange = (e) => {
     setFormData({
@@ -17,25 +19,32 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     // send to backend API
     setSubmitting(true);
     setError(null);
+    
+    // Add phone field if exists in form
+    const dataToSend = { ...formData, phone: formData.phone || '' };
+    
     fetch((import.meta.env.VITE_CONTACT_API_URL || '') + '/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
+      body: JSON.stringify(dataToSend)
     })
       .then(async (res) => {
         const data = await res.json().catch(() => ({}));
         if (!res.ok) {
           throw new Error((data && data.errors && data.errors.join('\n')) || data.error || 'Failed to send message');
         }
-        setFormData({ name: '', email: '', subject: '', message: '' });
-        setSuccess('Message sent successfully!');
+        setFormData({ name: '', email: '', subject: '', message: '', phone: '' });
+        setSuccess('Message sent successfully! We will get back to you soon.');
+        // Hide success message after 5 seconds
+        setTimeout(() => setSuccess(null), 5000);
       })
       .catch((err) => {
         console.error('Contact submit error', err);
-        setError(err.message || 'Failed to send message');
+        setError(err.message || 'Failed to send message. Please try again later.');
       })
       .finally(() => setSubmitting(false));
   };
@@ -66,6 +75,8 @@ const Contact = () => {
           <div className="bg-black rounded-2xl p-8 border border-gray-800/40 shadow-lg hover:shadow-blue-900/5 transition-all">
             <h2 className="text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Send a Message</h2>
             
+            {/* Server status indicator removed */}
+            
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
@@ -92,6 +103,17 @@ const Contact = () => {
                     required 
                   />
                 </div>
+              </div>
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-1">Phone (Optional)</label>
+                <input 
+                  type="tel" 
+                  id="phone" 
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg bg-black/50 text-white border border-gray-800/60 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all" 
+                />
               </div>
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-1">Subject</label>
