@@ -127,7 +127,7 @@ const Home = () => {
               className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 mb-6 sm:mb-8 w-full opacity-0 transform translate-y-10 transition-all duration-1000"
             >
               <a 
-                href="/assets/JATIN KAVANI.pdf" 
+                href="src/assets/JATIN KAVANI.pdf" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-white font-medium flex items-center justify-center gap-2 text-sm hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-blue-500/30 w-full sm:w-auto min-w-[140px] mt-1"
